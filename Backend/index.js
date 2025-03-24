@@ -52,7 +52,7 @@ app.get("/api/dashboard", async (req, res) => {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         console.log("Token Verified! User:", decoded);
 
-        // Dashboard data with additional details (name, image URL, description)
+       
         const dashboardData = [
             { 
                 id: 1, 
@@ -61,9 +61,7 @@ app.get("/api/dashboard", async (req, res) => {
                 Issued_by: "Unique Identification Authority of India (UIDAI)",
                 Purpose: "Identification and authentication (includes biometric details)",
                 Key_Features: "Aadhaar number, Name, Date of Birth, Address, Photograph, Fingerprints, Iris scan",
-                latitude: 17.4258,
-                longitude: 78.4485,
-                address: "Road No 7, Vimal Nagar, Banjara Hills, Hyderabad",
+               
             },
             
             { 
@@ -73,9 +71,7 @@ app.get("/api/dashboard", async (req, res) => {
                 Issued_by: "Election Commission of India",
                 Purpose: "To vote in Indian elections",
                 Key_Features: "Voter ID number, Name, Photo, Address, Date of Birth, Electoral Constituency",
-                latitude: 17.4391,
-                longitude: 78.4985,
-                address: "Sai Baba Temple, Secunderabad, Hyderabad",
+              
             },
             
             { 
@@ -85,9 +81,7 @@ app.get("/api/dashboard", async (req, res) => {
                 Issued_by: "Income Tax Department",
                 Purpose: "Taxpayer identification, used for financial transactions",
                 Key_Features: "Permanent Account Number (PAN), Name, Photograph, Date of Birth, Signature",
-                latitude: 19.0760,
-                longitude: 72.8777,
-                address: "Mumbai Central, Mumbai, Maharashtra",
+               
             },
             
             { 
@@ -97,9 +91,7 @@ app.get("/api/dashboard", async (req, res) => {
                 Issued_by: "Regional Transport Office (RTO)",
                 Purpose: "Legal permission to drive in India",
                 Key_Features: "License number, Name, Address, Photograph, Date of Birth, Vehicle Classes Allowed",
-                latitude: 28.704060,
-                longitude: 77.102493,
-                address: "Vikas Sadan, INA Market, New Delhi, Delhi"
+               
             },
             
             { 
@@ -109,9 +101,7 @@ app.get("/api/dashboard", async (req, res) => {
                 Issued_by: "Ministry of External Affairs",
                 Purpose: "LInternational travel, identification",
                 Key_Features: "Passport number, Name, Photograph, Date of Birth, Nationality, Issue Date, Expiry Date",
-                latitude: 12.9716,
-                longitude: 77.5946,
-                address: "Passport Seva Kendra, Bangalore",
+                
             },
             { 
                 id: 6, 
@@ -120,9 +110,7 @@ app.get("/api/dashboard", async (req, res) => {
                 Issued_by: "State Government",
                 Purpose: "Food security and subsidized food distribution",
                 Key_Features: "Ration card number, Name, Address, Family Details, Type of Ration Card (Antyodaya, Priority)",
-                latitude: 17.385044,
-                longitude: 78.486671,
-                address: "Ameerpet, Hyderabad",
+                
             },
             
 
@@ -133,9 +121,7 @@ app.get("/api/dashboard", async (req, res) => {
                 Issued_by: "Some states in India (under proposed system)",
                 Purpose: "A general identity card for residents",
                 Key_Features: "Similar to Aadhaar, including photo and personal details",
-                latitude: 22.5726,
-                longitude: 88.3639,
-                address: "Park Street, Kolkata",
+              
             },
             
             { 
@@ -145,9 +131,7 @@ app.get("/api/dashboard", async (req, res) => {
                 Issued_by: "Health Insurance Providers",
                 Purpose: "Identification for medical insurance purposes",
                 Key_Features: "Insurance number, Name, Photograph, Policy details",
-                latitude: 12.9716,
-                longitude: 77.5946,
-                address: "MG Road, Bangalore, Karnataka",
+                
             },
             
 
@@ -156,9 +140,7 @@ app.get("/api/dashboard", async (req, res) => {
                 name: "STUDENT ID", 
                 imageUrl: "https://etstatic.tnn.in/thumb/msid-118580277,width-450,height-254,resizemode-75/118580277.jpg", // Replace with an actual image URL
                 Issued_by: "Educational Institutions (Schools, Colleges, Universities)",    
-                latitude: 12.9716,
-                longitude: 77.5946,
-                address: "MG Road, Bangalore, Karnataka",
+              
             },
            
         ];

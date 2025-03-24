@@ -17,7 +17,7 @@
 
 /* Logo Styling */
 .navbar-logo {
-  height: 60px; /* Adjust logo size */
+  height: 60px; 
   width: 80px;
   object-fit: contain;
   cursor: pointer;
@@ -30,7 +30,7 @@
   filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.5));
 }
 
-/* Navbar Links */
+
 .navbar a {
   color: white;
   text-decoration: none;
@@ -40,12 +40,11 @@
   transition: color 0.3s ease-in-out;
 }
 
-/* Navbar Link Hover Effect */
 .navbar a:hover {
   color: #f39c12;
 }
 
-/* Navbar Link Underline Animation */
+
 .navbar a::after {
   content: "";
   position: absolute;
