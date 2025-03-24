@@ -6,8 +6,10 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    navigate("/login");
+    localStorage.removeItem("token"); // Remove token
+    localStorage.clear(); // Clear all stored data
+    console.log("User logged out. Token removed.");
+    navigate("/login"); 
   };
 
   return (

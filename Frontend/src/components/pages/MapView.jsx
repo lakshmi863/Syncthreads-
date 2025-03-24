@@ -4,47 +4,46 @@ import { useLocation } from "react-router-dom";
 import { fetchMapData } from "../services/mapService";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import "../styles/MapView.css"; // Import CSS file
-
-// Import marker icon from assets
+import "../styles/MapView.css";
 import markerIconRed from "../../assets/marker-icon-red.png";
 
 // Custom marker icon
 const customIcon = L.icon({
-  iconUrl: markerIconRed, // ✅ Use imported image
-  iconSize: [32, 48], // Adjust size as needed
-  iconAnchor: [16, 48], // Center the icon properly
-  popupAnchor: [0, -40], // Adjust popup position
+  iconUrl: markerIconRed,
+  iconSize: [32, 48],
+  iconAnchor: [16, 48],
+  popupAnchor: [0, -40],
 });
 
 const MapView = () => {
   const [mapData, setMapData] = useState(null);
   const [center, setCenter] = useState([20.5937, 78.9629]); // Default center (India)
-  const [zoom, setZoom] = useState(5); // Default zoom level
+  const [zoom, setZoom] = useState(5);
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
   const cardId = queryParams.get("id");
+  const isAuthenticated = !!localStorage.getItem("token"); // Check login status
 
   useEffect(() => {
+    if (!isAuthenticated) {
+      setMapData({ message: "User not logged in" });
+      return;
+    }
+
     if (cardId) {
-      console.log("Fetching map data for card ID:", cardId);
       fetchMapData(cardId)
         .then((data) => {
-          console.log("Fetched Data:", data);
-          if (data && data.center && Array.isArray(data.center) && data.center.length === 2) {
+          if (data?.center && Array.isArray(data.center) && data.center.length === 2) {
             setCenter(data.center);
             setZoom(data.zoom || 12);
-          } else {
-            console.error("Invalid center data:", data.center);
           }
           setMapData(data);
         })
-        .catch((error) => {
-          console.error("Error fetching map data:", error);
+        .catch(() => {
           setMapData({ message: "No map data available" });
         });
     }
-  }, [cardId]);
+  }, [cardId, isAuthenticated]);
 
   return (
     <div className="map-container">
