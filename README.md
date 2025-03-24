@@ -17,7 +17,7 @@ This project is a full-stack web application built with **React.js (frontend) an
 
  Figma Portfolio
 Check out the UI/UX design of this project on **Figma**:  
-👉![Untitled](https://github.com/user-attachments/assets/5cafa5be-205f-4d7c-8fd4-544fce41bca9)
+👉
 
 
 ---
