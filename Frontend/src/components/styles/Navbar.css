@@ -6,6 +6,28 @@
   justify-content: space-between;
   align-items: center;
   color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Navbar Hover Effect */
+.navbar:hover {
+  background-color: #222;
+}
+
+/* Logo Styling */
+.navbar-logo {
+  height: 60px; /* Adjust logo size */
+  width: 80px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Logo Hover Effect */
+.navbar-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.5));
 }
 
 /* Navbar Links */
@@ -14,10 +36,32 @@
   text-decoration: none;
   margin: 0 15px;
   font-size: 18px;
+  position: relative;
+  transition: color 0.3s ease-in-out;
 }
 
+/* Navbar Link Hover Effect */
 .navbar a:hover {
   color: #f39c12;
+}
+
+/* Navbar Link Underline Animation */
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: #f39c12;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 /* Navbar Button */
@@ -29,8 +73,13 @@
   cursor: pointer;
   font-size: 16px;
   border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 2px 10px rgba(255, 77, 77, 0.3);
 }
 
+/* Button Hover Effect */
 .navbar button:hover {
   background-color: #cc0000;
+  transform: scale(1.05);
+  box-shadow: 3px 3px 15px rgba(255, 77, 77, 0.5);
 }
