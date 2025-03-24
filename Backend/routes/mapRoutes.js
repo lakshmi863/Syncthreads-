@@ -4,6 +4,7 @@ import { verifyToken } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-router.get("/", verifyToken, getMapData);
+// Updated route to accept dynamic cardId parameter
+router.get("/:cardId", verifyToken, getMapData);
 
 export default router;

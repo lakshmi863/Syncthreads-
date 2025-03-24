@@ -1,8 +1,10 @@
 import axios from "axios";
 
-export const fetchMapData = async () => {
+// Arrow function with destructuring in the parameter
+export const fetchMapData = async (cardId) => {
   try {
-    const response = await axios.get("http://localhost:5000/api/map", {
+    // Using template literals for URL
+    const response = await axios.get(`http://localhost:5000/api/map/${cardId}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     });
     return response.data;

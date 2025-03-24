@@ -156,6 +156,9 @@ app.get("/api/dashboard", async (req, res) => {
                 name: "STUDENT ID", 
                 imageUrl: "https://etstatic.tnn.in/thumb/msid-118580277,width-450,height-254,resizemode-75/118580277.jpg", // Replace with an actual image URL
                 Issued_by: "Educational Institutions (Schools, Colleges, Universities)",    
+                latitude: 12.9716,
+                longitude: 77.5946,
+                address: "MG Road, Bangalore, Karnataka",
             },
            
         ];
@@ -248,6 +251,9 @@ app.get("/api/map/:cardId", verifyToken, (req, res) => {
             name: "STUDENT ID", 
             imageUrl: "https://etstatic.tnn.in/thumb/msid-118580277,width-450,height-254,resizemode-75/118580277.jpg", // Replace with an actual image URL
             Issued_by: "Educational Institutions (Schools, Colleges, Universities)",    
+            latitude: 12.9716,
+            longitude: 77.5946,
+            address: "MG Road, Bangalore, Karnataka",
         },
        
       ];
