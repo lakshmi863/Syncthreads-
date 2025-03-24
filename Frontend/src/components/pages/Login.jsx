@@ -12,7 +12,7 @@ const Login = () => {
     try {
       const token = await login(credentials);
       if (token) {
-        localStorage.setItem("token", token);  // Ensure key matches in fetchDashboardData.js
+        localStorage.setItem("token", token); // Ensure key matches
         console.log("Token saved in localStorage:", token);
         navigate("/dashboard");
       } else {

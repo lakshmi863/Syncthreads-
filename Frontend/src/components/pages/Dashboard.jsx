@@ -11,24 +11,30 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("🔥 useEffect triggered: Fetching dashboard data...");
+  
     const loadData = async () => {
       try {
         const data = await fetchDashboardData();
-        if (Array.isArray(data)) {
+        console.log("🎯 Dashboard Data Received:", data);
+  
+        if (Array.isArray(data) && data.length > 0) {
           setCards(data);
         } else {
-          setError("Invalid data format from API");
+          console.warn("⚠️ No cards found in API response.");
+          setCards([]); // Set empty state
         }
       } catch (err) {
+        console.error("❌ Error fetching data:", err);
         setError("Error fetching dashboard data");
       } finally {
         setLoading(false);
       }
     };
-
+  
     loadData();
   }, []);
-
+  
   return (
     <div className="dashboard">
       <h2>Dashboard</h2>

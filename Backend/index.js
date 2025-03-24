@@ -37,9 +37,37 @@ app.post("/api/login", (req, res) => {
 
 
 // Dashboard API
-app.get("/api/dashboard", verifyToken, (req, res) => {
-    res.json([{ id: 1, name: "Card 1" }, { id: 2, name: "Card 2" }]); // Direct array
+app.get("/api/dashboard", async (req, res) => {
+    try {
+        const authHeader = req.headers["authorization"];
+        console.log("🔑 Received Authorization Header:", authHeader);
+
+        if (!authHeader || !authHeader.startsWith("Bearer ")) {
+            return res.status(403).json({ message: "User not logged in" });
+        }
+
+        const token = authHeader.split(" ")[1];
+        console.log("📌 Extracted Token:", token);
+
+        const decoded = jwt.verify(token, "mysecretkey");
+        console.log("✅ Token Verified! User:", decoded);
+
+        // Fetch dashboard data (Replace with your database query)
+        const dashboardData = [
+            { id: 1, name: "Card 1" },
+            { id: 2, name: "Card 2" },
+        ];
+
+        res.json(dashboardData);
+    } catch (error) {
+        if (error.name === 'TokenExpiredError') {
+            return res.status(401).json({ message: "Token has expired" });
+        }
+        console.error("❌ Error verifying token:", error.message);
+        res.status(403).json({ message: "Invalid token" });
+    }
 });
+
 // Map View API
 app.get("/api/map", verifyToken, (req, res) => {
     res.json({ center: [20.5937, 78.9629], zoom: 5 }); // India Coordinates
